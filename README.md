@@ -18,7 +18,7 @@ For require in JS file:
 import Cookie from 'just-cookie'
 ```
 
-## Usage
+## Using
 
 Method `get(cookieName)` return cookie value:
 
