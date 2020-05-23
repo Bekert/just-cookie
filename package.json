@@ -1,0 +1,9 @@
+{
+  "name": "JustCookie",
+  "version": "0.1.0",
+  "description": "Simply library for manage cookie",
+  "main": "index.js",
+  "repository": "https://github.com/Bekert/JustCookie.git",
+  "author": "Bekert <bekert@tutanota.com>",
+  "license": "MIT"
+}
