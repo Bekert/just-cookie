@@ -54,7 +54,7 @@
 //     }
 // }
 
-cookie = {
+const cookie = {
     get: function get(cookieName) {
         if (!document.cookie) {
             return console.error('JustCookieError: cookies are not found')
