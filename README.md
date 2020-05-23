@@ -1,6 +1,6 @@
 # just-cookie
 
-Just a simply cookie manager. If you are using it, you are really crazy.
+Just a simple JS cookie manager. If you are using it, you are really crazy.
 
 ## Installing
 
@@ -18,27 +18,27 @@ For require in JS file:
 import Cookie from 'just-cookie'
 ```
 
-## Using
+## Usage
 
-Method `get(cookieName)` return cookie value:
+Method `get(cookieName)` returns cookie value:
 
 ```js
 // Cookie on page: token=123
-Cookie.get('token') // return 123
+Cookie.get('token') // returns 123
 ```
 
-Method `getFull(cookieName)` return all cookie body:
+Method `getFull(cookieName)` returns all cookie body:
 
 ```js
 // Cookies on page: token=123
-Cookie.getFull('token') // return 'token=123'
+Cookie.getFull('token') // returns 'token=123'
 ```
 
-Method `getAll()` return all cookies:
+Method `getAll()` returns all cookies:
 
 ```js
 // Cookies on page: token=123; name=Bruce
-Cookie.getAll() // return 'token=123; name=Bruce'
+Cookie.getAll() // returns 'token=123; name=Bruce'
 ```
 
 Method `set(cookieName, cookieValue)` add new cookie:
@@ -51,12 +51,12 @@ Method `remove(cookieName)` remove cookie that said in arguments:
 
 ```js
 // Cookies on page: token=123
-Cookie.remove('token') // remove token=123 from cookies
+Cookie.remove('token') // removes token=123 from cookies
 ```
 
-Method `removeAll()` remove all cookies:
+Method `removeAll()` removes all cookies:
 ```js
-removeAll() // just delete all cookies that was 
+Cookie.removeAll() 
 ```
 
 
