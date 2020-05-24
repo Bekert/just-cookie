@@ -12,6 +12,8 @@ In package.json:
 }
 ```
 
+Or you can also install source code on realses tab.
+
 For require in JS file:
 
 ```js
