@@ -5,5 +5,16 @@
   "main": "index.js",
   "repository": "https://github.com/Bekert/JustCookie.git",
   "author": "Bekert <bekert@tutanota.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cz-customizable": "^6.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/commitizen.js"
+    }
+  }
 }
