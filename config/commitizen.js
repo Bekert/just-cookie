@@ -15,10 +15,12 @@ module.exports = {
 
   messages: {
     type: "Type of your changes:",
-    scope: "\nSelect AREA that you changed (optional):",
     subject: "Write short DISCRIPTION of your changes:\n",
+    breaking: "List of BREAKING CHANGES (optional):\n",
     confirmCommit: "Everything okay?"
   },
 
-  subjectLimit: 72
+  subjectLimit: 72,
+  allowBreakingChanges: false,
+  upperCaseSubject: true
 };
