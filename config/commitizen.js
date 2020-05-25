@@ -9,7 +9,7 @@ module.exports = {
         { value: "fix", name: "fix:       Fix bags" },
         {
             value: "refactor",
-            name: "refactor:  Fix code without addition new features",
+            name: "refactor:  Change code without addition new features",
         },
         { value: "docs", name: "docs:      Update docs" },
         { value: "revert", name: "revert:    Back to previous commits" },
