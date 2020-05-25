@@ -58,4 +58,4 @@ class Cookie {
     }
 }
 
-module.exports = cookie
+module.exports = Cookie
