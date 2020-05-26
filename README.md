@@ -12,12 +12,12 @@ In package.json:
 }
 ```
 
-Or you can also install source code on realses tab.
+Or you can also install source code on releases tab.
 
 For require in JS file:
 
 ```js
-import Cookie from 'just-cookie'
+import Cookie from "just-cookie"
 ```
 
 ## Usage
@@ -26,14 +26,14 @@ Method `get(cookieName)` returns cookie value:
 
 ```js
 // Cookie on page: token=123
-Cookie.get('token') // returns 123
+Cookie.get("token") // returns 123
 ```
 
 Method `getFull(cookieName)` returns all cookie body:
 
 ```js
 // Cookies on page: token=123
-Cookie.getFull('token') // returns 'token=123'
+Cookie.getFull("token") // returns 'token=123'
 ```
 
 Method `getAll()` returns all cookies:
@@ -43,24 +43,28 @@ Method `getAll()` returns all cookies:
 Cookie.getAll() // returns 'token=123; name=Bruce'
 ```
 
-Method `set(cookieName, cookieValue)` add new cookie:
+Method `add(cookieName, cookieValue)` adds new cookie:
 
 ```js
-Cookie.set('token', '123') // add token=123 to cookies
+Cookie.add("token", "123") // add token=123 to cookies
+```
+
+Method `set(cookieName, cookieValue)` rewrites value in already existing cookie:
+
+```js
+// Cookies on pega: token=123
+Cookie.set("token", "12345") // change token=123 to token=12345
 ```
 
 Method `remove(cookieName)` remove cookie that said in arguments:
 
 ```js
 // Cookies on page: token=123
-Cookie.remove('token') // removes token=123 from cookies
+Cookie.remove("token") // removes token=123 from cookies
 ```
 
 Method `removeAll()` removes all cookies:
+
 ```js
-Cookie.removeAll() 
+Cookie.removeAll()
 ```
-
-
-
-
