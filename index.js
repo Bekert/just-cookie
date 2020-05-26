@@ -41,6 +41,15 @@ class Cookie {
         document.cookie = `${cookieName}=${cookieBody}`
     }
 
+    static setWithRewrite(cookieName, cookieBody) {
+        if (!this.get(cookieName)) {
+            return console.error(
+                "JustCookieError: this cookie does not already exsist. For add new cookie use method set()"
+            )
+        }
+        document.cookie = `${cookieName}=${cookieBody}`
+    }
+
     static remove(cookieName) {
         if (!document.cookie) {
             return console.error("JustCookieError: cookies are not found")
