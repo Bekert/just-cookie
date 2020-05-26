@@ -32,22 +32,22 @@ class Cookie {
         return document.cookie
     }
 
-    static add(cookieName, cookieBody) {
+    static add(cookieName, cookieValue) {
         if (this.get(cookieName)) {
             return console.error(
                 "JustCookieError: this cookie already exsist. For rewriting use method setWithRewrite()"
             )
         }
-        document.cookie = `${cookieName}=${cookieBody}`
+        document.cookie = `${cookieName}=${cookieValue}`
     }
 
-    static set(cookieName, cookieBody) {
+    static set(cookieName, cookieValue) {
         if (!this.get(cookieName)) {
             return console.error(
                 "JustCookieError: this cookie does not exsist. For adding new cookie use method set()"
             )
         }
-        document.cookie = `${cookieName}=${cookieBody}`
+        document.cookie = `${cookieName}=${cookieValue}`
     }
 
     static remove(cookieName) {
