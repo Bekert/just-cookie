@@ -32,7 +32,7 @@ class Cookie {
         return document.cookie
     }
 
-    static set(cookieName, cookieBody) {
+    static add(cookieName, cookieBody) {
         if (this.get(cookieName)) {
             return console.error(
                 "JustCookieError: this cookie already exsist. For rewriting use method setWithRewrite()"
@@ -41,7 +41,7 @@ class Cookie {
         document.cookie = `${cookieName}=${cookieBody}`
     }
 
-    static setWithRewrite(cookieName, cookieBody) {
+    static set(cookieName, cookieBody) {
         if (!this.get(cookieName)) {
             return console.error(
                 "JustCookieError: this cookie does not exsist. For adding new cookie use method set()"
