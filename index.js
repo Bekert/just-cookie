@@ -35,7 +35,7 @@ class Cookie {
     static set(cookieName, cookieBody) {
         if (this.get(cookieName)) {
             return console.error(
-                "JustCookieError: this cookie is already exsist. For rewrite use method setWithRewrite()"
+                "JustCookieError: this cookie already exsist. For rewriting use method setWithRewrite()"
             )
         }
         document.cookie = `${cookieName}=${cookieBody}`
@@ -44,7 +44,7 @@ class Cookie {
     static setWithRewrite(cookieName, cookieBody) {
         if (!this.get(cookieName)) {
             return console.error(
-                "JustCookieError: this cookie does not already exsist. For add new cookie use method set()"
+                "JustCookieError: this cookie does not exsist. For adding new cookie use method set()"
             )
         }
         document.cookie = `${cookieName}=${cookieBody}`
