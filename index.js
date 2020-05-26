@@ -33,6 +33,11 @@ class Cookie {
     }
 
     static set(cookieName, cookieBody) {
+        if (this.get(cookieName)) {
+            return console.error(
+                "JustCookieError: this cookie is already exsist. For rewrite use method setWithRewrite()"
+            )
+        }
         document.cookie = `${cookieName}=${cookieBody}`
     }
 
