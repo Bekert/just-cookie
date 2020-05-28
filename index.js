@@ -1,3 +1,6 @@
+const pathRegexp = /\/[^\s]+/gm
+const domainRegexp = /(\*?|\.\*?)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gm
+
 class Cookie {
     static get(cookieName) {
         if (!document.cookie) {
@@ -32,13 +35,38 @@ class Cookie {
         return document.cookie
     }
 
-    static add(cookieName, cookieValue) {
+    static add(
+        cookieName,
+        cookieValue,
+        { path, domain, expires, maxAge, secure }
+    ) {
         if (this.get(cookieName)) {
             return console.error(
                 "JustCookieError: this cookie already exsist. For rewriting use method setWithRewrite()"
             )
         }
-        document.cookie = `${cookieName}=${cookieValue}`
+        let cookie = `${cookieName}=${cookieValue}`
+
+        const types = ["path", "domain", "expires", "maxAge", "secure"]
+
+        const array = [path, domain, expires, maxAge, secure]
+
+        for (let param in array) {
+            const value = array[param]
+            if (value) {
+                if (+param === 0 && value.search(pathRegexp) === -1) {
+                    return console.error("JustCookieError: wrong path format")
+                }
+                if (+param === 1 && value.search(domainRegexp) === -1) {
+                    return console.error("JustCookieError: wrong domain format")
+                }
+
+                const type = types[param]
+                cookie = `${cookie}; ${type}=${value}`
+            }
+        }
+
+        return cookie
     }
 
     static set(cookieName, cookieValue) {
