@@ -16,5 +16,8 @@
     "cz-customizable": {
       "config": "config/commitizen.js"
     }
+  },
+  "dependencies": {
+    "@types/node": "^14.0.5"
   }
 }
