@@ -14,26 +14,27 @@ class Cookie {
         if (!document.cookie) {
             return console.error('JustCookieError: cookies are not found')
         }
-        const cookieBody: string = document.cookie.match(
+        const cookieBody: RegExpMatchArray | null = document.cookie.match(
             new RegExp(`${cookieName}=(.*?)(?:; |$)`)
-        )[1]
+        )
         if (!cookieBody) {
             return console.error('JustCookieError: this cookie is not found')
         }
-        return cookieBody
+        return cookieBody[1]
     }
 
     static getFull(cookieName: string) {
         if (!document.cookie) {
             return console.error('JustCookieError: cookies are not found')
         }
-        const cookie: string = document.cookie.match(
+        const cookie: RegExpMatchArray | null = document.cookie.match(
             new RegExp(`${cookieName}=(.*?)(?:; |$)`)
-        )[0]
+        )
+
         if (!cookie) {
             return console.error('JustCookieError: this cookie is not found')
         }
-        return cookie
+        return cookie[0]
     }
 
     static getAll() {
