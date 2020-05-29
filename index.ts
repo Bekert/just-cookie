@@ -1,5 +1,3 @@
-export {}
-
 const pathRegexp: RegExp = /\/[^\s]+/gm
 const domainRegexp: RegExp = /(\*?|\.\*?)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gm
 
@@ -117,4 +115,4 @@ class Cookie {
     }
 }
 
-module.exports = Cookie
+export default Cookie
