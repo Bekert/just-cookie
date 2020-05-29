@@ -98,9 +98,9 @@ class Cookie {
         if (!document.cookie) {
             return console.error('JustCookieError: cookies are not found')
         }
-        // if (!cookie) {
-        //     return console.error('JustCookieError: this cookie is not found')
-        // }
+        if (!this.get(cookieName)) {
+            return console.error('JustCookieError: this cookie is not found')
+        }
         document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT`
     }
 
@@ -110,8 +110,13 @@ class Cookie {
         }
         const cookies: string[] = document.cookie.split(';')
         for (let cookie of cookies) {
-            const cookieName: string = cookie.match(/(.*)=/)[1]
-            document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT`
+            const cookieName: RegExpMatchArray | null = cookie.match(/(.*)=/)
+            if (!cookieName) {
+                return console.error(
+                    'JustCookieError: some cookie are not found'
+                )
+            }
+            document.cookie = `${cookieName[1]}=;expires=Thu, 01 Jan 1970 00:00:00 GMT`
         }
     }
 }
