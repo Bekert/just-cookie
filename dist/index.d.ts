@@ -1,5 +1,3 @@
-declare const pathRegexp: RegExp;
-declare const domainRegexp: RegExp;
 interface CookieParams {
     path: string;
     domain: string;
@@ -16,3 +14,4 @@ declare class Cookie {
     static remove(cookieName: string): void;
     static removeAll(): void;
 }
+export default Cookie;

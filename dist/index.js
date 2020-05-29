@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 var pathRegexp = /\/[^\s]+/gm;
 var domainRegexp = /(\*?|\.\*?)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gm;
 var Cookie = /** @class */ (function () {
@@ -84,4 +86,4 @@ var Cookie = /** @class */ (function () {
     };
     return Cookie;
 }());
-module.exports = Cookie;
+exports["default"] = Cookie;
