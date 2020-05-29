@@ -47,12 +47,19 @@ class Cookie {
     static add(
         cookieName: string,
         cookieValue: string,
-        cookieParams: CookieParams
+        { path, domain, expires, maxAge, secure }: CookieParams
     ) {
         if (this.get(cookieName)) {
             return console.error(
                 'JustCookieError: this cookie already exsist. For rewriting use method setWithRewrite()'
             )
+        }
+        const cookieParams: CookieParams = {
+            path,
+            domain,
+            expires,
+            maxAge,
+            secure,
         }
         let cookie: string = `${cookieName}=${cookieValue}`
 
