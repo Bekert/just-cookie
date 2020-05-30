@@ -2,11 +2,11 @@ const pathRegexp: RegExp = /\/[^\s]+/gm
 const domainRegexp: RegExp = /(\*?|\.\*?)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/gm
 
 interface CookieParams {
-    path: string
-    domain: string
-    expires: Date
-    maxAge: number
-    secure: boolean
+    path?: string
+    domain?: string
+    expires?: Date
+    maxAge?: number
+    secure?: boolean
 }
 
 class Cookie {
@@ -47,13 +47,16 @@ class Cookie {
     static add(
         cookieName: string,
         cookieValue: string,
-        { path, domain, expires, maxAge, secure }: CookieParams
+        { path, domain, expires, maxAge, secure }: CookieParams = {}
     ) {
         if (this.get(cookieName)) {
             return console.error(
                 'JustCookieError: this cookie already exsist. For rewriting use method setWithRewrite()'
             )
         }
+
+        let cookie: string = `${cookieName}=${cookieValue}`
+
         const cookieParams: CookieParams = {
             path,
             domain,
@@ -61,7 +64,6 @@ class Cookie {
             maxAge,
             secure,
         }
-        let cookie: string = `${cookieName}=${cookieValue}`
 
         for (const type of Object.keys(cookieParams)) {
             const value: any = cookieParams[type as keyof CookieParams]
@@ -89,7 +91,7 @@ class Cookie {
             }
         }
 
-        return cookie
+        document.cookie = cookie
     }
 
     static set(cookieName: string, cookieValue: string) {
