@@ -94,13 +94,54 @@ class Cookie {
         document.cookie = cookie
     }
 
-    static set(cookieName: string, cookieValue: string) {
+    static set(
+        cookieName: string,
+        cookieValue: string,
+        { path, domain, expires, maxAge, secure }: CookieParams = {}
+    ) {
         if (!this.get(cookieName)) {
             return console.error(
                 'JustCookieError: this cookie does not exsist. For adding new cookie use method set()'
             )
         }
-        document.cookie = `${cookieName}=${cookieValue}`
+
+        let cookie: string = `${cookieName}=${cookieValue}`
+
+        const cookieParams: CookieParams = {
+            path,
+            domain,
+            expires,
+            maxAge,
+            secure,
+        }
+
+        for (const type of Object.keys(cookieParams)) {
+            const value: any = cookieParams[type as keyof CookieParams]
+
+            if (value) {
+                if (
+                    type === 'path' &&
+                    value.toString().search(pathRegexp) === -1
+                ) {
+                    return console.error('JustCookieError: wrong path format')
+                }
+
+                if (
+                    type === 'domain' &&
+                    value.toString().search(domainRegexp) === -1
+                ) {
+                    return console.error('JustCookieError: wrong domain format')
+                }
+
+                if (type === 'secure') {
+                    cookie = `${cookie}; secure`
+                } else {
+                    cookie = `${cookie}; ${type}=${value}`
+                }
+            }
+        }
+
+        document.cookie = cookie
     }
 
     static remove(cookieName: string) {
