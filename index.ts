@@ -20,7 +20,7 @@ class Cookie {
         if (!cookieBody) {
             return console.error('JustCookieError: this cookie is not found')
         }
-        return cookieBody[1]
+        return cookieBody[1].toString()
     }
 
     static getFull(cookieName: string) {
@@ -34,14 +34,14 @@ class Cookie {
         if (!cookie) {
             return console.error('JustCookieError: this cookie is not found')
         }
-        return cookie[0]
+        return cookie[0].toString()
     }
 
     static getAll() {
         if (!document.cookie) {
             return console.error('JustCookieError: cookies are not found')
         }
-        return document.cookie
+        return document.cookie.toString()
     }
 
     static add(
