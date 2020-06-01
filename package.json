@@ -1,7 +1,7 @@
 {
     "name": "just-cookie",
     "version": "0.1.0",
-    "description": "Simply library for manage cookie",
+    "description": "Simple library to manage cookies",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/Bekert/JustCookie.git",
