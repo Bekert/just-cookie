@@ -17,9 +17,9 @@ module.exports = {
         },
         {
             value: "ci",
-            name: "build:     Changes to our CI configuration files and scripts (just nothing)",
+            name: "ci:        Changes to our CI configuration files and scripts (just nothing)",
         },
-        { value: "test", name: "test:     Add tests" },
+        { value: "test", name: "test:      Add tests" },
         { value: "chore", name: "chore:     Other changes" },
     ],
 
