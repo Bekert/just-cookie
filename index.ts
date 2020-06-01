@@ -12,34 +12,34 @@ interface CookieParams {
 class Cookie {
     static get(cookieName: string) {
         if (!document.cookie) {
-            return console.error('JustCookieError: cookies are not found')
+            return console.error('JustCookieError: no cookies found')
         }
         const cookieBody: RegExpMatchArray | null = document.cookie.match(
             new RegExp(`${cookieName}=(.*?)(?:; |$)`)
         )
         if (!cookieBody) {
-            return console.error('JustCookieError: this cookie is not found')
+            return console.error('JustCookieError: this cookie does not exist')
         }
         return cookieBody[1].toString()
     }
 
     static getFull(cookieName: string) {
         if (!document.cookie) {
-            return console.error('JustCookieError: cookies are not found')
+            return console.error('JustCookieError: no cookies found')
         }
         const cookie: RegExpMatchArray | null = document.cookie.match(
             new RegExp(`${cookieName}=(.*?)(?:; |$)`)
         )
 
         if (!cookie) {
-            return console.error('JustCookieError: this cookie is not found')
+            return console.error('JustCookieError: this cookie does not exist')
         }
         return cookie[0].toString()
     }
 
     static getAll() {
         if (!document.cookie) {
-            return console.error('JustCookieError: cookies are not found')
+            return console.error('JustCookieError: no cookies found')
         }
         return document.cookie.toString()
     }
@@ -51,7 +51,7 @@ class Cookie {
     ) {
         if (this.get(cookieName)) {
             return console.error(
-                'JustCookieError: this cookie already exsist. For rewriting use method setWithRewrite()'
+                'JustCookieError: this cookie already exists. To rewrite use set()'
             )
         }
 
@@ -101,7 +101,7 @@ class Cookie {
     ) {
         if (!this.get(cookieName)) {
             return console.error(
-                'JustCookieError: this cookie does not exsist. For adding new cookie use method set()'
+                'JustCookieError: this cookie does not exist. To create a new cookie use set()'
             )
         }
 
@@ -146,17 +146,17 @@ class Cookie {
 
     static remove(cookieName: string) {
         if (!document.cookie) {
-            return console.error('JustCookieError: cookies are not found')
+            return console.error('JustCookieError: no cookies found')
         }
         if (!this.get(cookieName)) {
-            return console.error('JustCookieError: this cookie is not found')
+            return console.error('JustCookieError: this cookie does not exist')
         }
         document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 GMT`
     }
 
     static removeAll() {
         if (!document.cookie) {
-            return console.error('JustCookieError: cookies are not found')
+            return console.error('JustCookieError: no cookies found')
         }
         const cookies: string[] = document.cookie.split(';')
         for (let cookie of cookies) {
