@@ -1,34 +1,31 @@
 module.exports = {
-    types: [
-        {
+    types: [{
             value: "build",
-            name:
-                "build:     Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
+            name: "build:     Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
         },
         { value: "feat", name: "feat:      Add new features, functional" },
-        { value: "fix", name: "fix:       Fix bags" },
+        { value: "fix", name: "fix:       Fix bugs" },
         {
             value: "refactor",
-            name: "refactor:  Change code without addition new features",
+            name: "refactor:  Change code without additional new features",
         },
         { value: "docs", name: "docs:      Update docs" },
         { value: "revert", name: "revert:    Back to previous commits" },
         {
             value: "style",
-            name: "style:     Codestile edits (tabs, dots, semicolons etc)",
+            name: "style:     Codestyle edits (tabs, dots, semicolons etc)",
         },
         {
             value: "ci",
-            name:
-                "build:     Changes to our CI configuration files and scripts (just nothing)",
+            name: "ci:        Changes to our CI configuration files and scripts (just nothing)",
         },
-        { value: "test", name: "test:     Add tests" },
+        { value: "test", name: "test:      Add tests" },
         { value: "chore", name: "chore:     Other changes" },
     ],
 
     messages: {
         type: "Type of your changes:",
-        subject: "Write short DISCRIPTION of your changes:\n",
+        subject: "Write short DESCRIPTION of your changes:\n",
         breaking: "List of BREAKING CHANGES (optional):\n",
         confirmCommit: "Everything okay?",
     },

@@ -1,30 +1,28 @@
 {
-  "name": "just-cookie",
-  "version": "0.1.0",
-  "description": "Simply library for manage cookie",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "repository": "https://github.com/Bekert/JustCookie.git",
-  "author": "Bekert <bekert@tutanota.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "cz-customizable": "^6.2.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
+    "name": "just-cookie",
+    "version": "0.1.0",
+    "description": "Simple library to manage cookies",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "repository": "https://github.com/Bekert/JustCookie.git",
+    "author": "Bekert <bekert@tutanota.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "cz-customizable": "^6.2.0",
+        "nodemon": "^2.0.4",
+        "@types/node": "^14.0.5",
+        "typescript": "^3.9.3"
     },
-    "cz-customizable": {
-      "config": "config/commitizen.js"
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-customizable"
+        },
+        "cz-customizable": {
+            "config": "config/commitizen.js"
+        }
+    },
+    "scripts": {
+        "compile": "tsc --project config/tsconfig.json",
+        "dev": "nodemon --watch index.ts --exec ts-node index.ts"
     }
-  },
-  "dependencies": {
-    "@types/node": "^14.0.5",
-    "nodemon": "^2.0.4",
-    "typescript": "^3.9.3"
-  },
-  "scripts": {
-    "compile": "tsc --project config/tsconfig.json",
-    "dev": "nodemon --watch index.ts --exec ts-node index.ts"
-  }
 }
